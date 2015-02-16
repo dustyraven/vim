@@ -23,3 +23,10 @@ cmpx() {
 
 alias checkphp='find . -name \*.php -exec php -l "{}" \; | grep -v "No syntax errors detected"'
 
+#if user is not root, pass all commands via sudo #
+if [ $UID -ne 0 ]; then
+    alias reboot='sudo reboot'
+    alias update='sudo apt-get update'
+    alias upgrade='sudo apt-get upgrade'
+    alias shutdown='sudo shutdown -h now'
+fi
